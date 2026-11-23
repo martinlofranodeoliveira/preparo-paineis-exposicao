@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; worker-src 'self'; connect-src 'none'; img-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <title>Preparo de Painéis para Exposição</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body data-layout="ferramenta">
+  <a class="skip" href="#entry-form">Ir para a ferramenta</a>
+  <main data-layout-profile="preparo-paineis-exposicao" data-layout="ferramenta">
+    <header class="task-header" data-region="task-header">
+      <div class="masthead">
+        <a href="https://lofranotecnologia.com.br/projetos" class="brand" aria-label="Projetos da LOFRANO">LOFRANO</a>
+        <span class="product-sector">Montagem de exposições</span>
+      </div>
+      <div class="task-title">
+        <h1>Preparo de Painéis para Exposição</h1>
+        <p>Acompanhe a disponibilidade de painéis e suportes por área e localize conjuntos sem mapa de montagem.</p>
+      </div>
+    </header>
+    <div class="workarea">
+      <section class="entry-panel" data-region="input" data-task-editor="ferramenta" aria-labelledby="entry-title">
+        <div class="module-heading">
+          <h2 id="entry-title">Dados da conferência</h2>
+          <button type="button" id="reset" class="quiet reset">Restaurar exemplo</button>
+        </div>
+        <form id="entry-form" class="editor-form" aria-labelledby="entry-title" tabindex="-1">
+          <div id="fields"></div>
+        </form>
+        <div class="entry-actions">
+          <button type="button" id="run" class="primary">Executar conferência</button>
+        </div>
+      </section>
+      <section class="result-panel" data-region="result" aria-labelledby="output-title">
+        <div class="result-header">
+          <div class="module-heading">
+            <h2 id="output-title">Resultado da conferência</h2>
+            <button type="button" id="download" class="quiet export" disabled>Baixar relatório</button>
+          </div>
+          <p role="status" id="status">Confira o resultado nesta área.</p>
+        </div>
+        <dl id="stats" aria-label="Resumo de conferência"></dl>
+        <div id="insights" data-region="insights" data-task-insights="ferramenta"></div>
+        <div id="result" data-region="result-details" tabindex="0" role="region" aria-labelledby="output-title"></div>
+      </section>
+    </div>
+    <footer class="task-footer">Exemplo fictício. O processamento acontece neste navegador.</footer>
+  </main>
+  <template id="sample-data">{"rows":[{"id":"amostra-a","area":"Exemplo regra-paineisSuficientes 1","paineisPrevistos":5,"paineisDisponiveis":5,"suportesDisponiveis":11,"mapaConferido":true},{"id":"amostra-b","area":"Exemplo regra-paineisSuficientes 1","paineisPrevistos":5,"paineisDisponiveis":2,"suportesDisponiveis":11,"mapaConferido":true}]}</template>
+  <template id="field-config">[{"key":"rows","label":"Registros","singular":"registro","fields":[{"key":"id","label":"Identificador","kind":"text","optional":false},{"key":"area","label":"Área da exposição","kind":"text","optional":false},{"key":"paineisPrevistos","label":"Painéis previstos","kind":"integer","optional":false},{"key":"paineisDisponiveis","label":"Painéis disponíveis","kind":"integer","optional":false},{"key":"suportesDisponiveis","label":"Suportes disponíveis","kind":"integer","optional":false},{"key":"mapaConferido","label":"Mapa de montagem conferido","kind":"checkbox","optional":false}],"maximum":150}]</template>
+</body>
+</html>
